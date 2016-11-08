@@ -3,7 +3,7 @@ from pprint import pprint
 from getpass import getpass
 from pynxos.device import Device
 
-nexus_ip = "153.92.39.181"
+nexus_ip = "nxos1.twb-tech.com"
 nxs_test = Device(host=nexus_ip, username="pyclass", password=getpass(),
                   transport='https', port=8443)
 
