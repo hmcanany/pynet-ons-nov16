@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-"""Accomplish class #8, exercise1b using a script"""
-
 import django
 from net_system.models import NetworkDevice, Credentials
 
