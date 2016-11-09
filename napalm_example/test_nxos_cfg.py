@@ -17,34 +17,25 @@ print
 print "\n\n>>>Test device open"
 device.open()
 
+
 print
-print "\n\n>>>Test get facts"
-device_facts = device.get_facts()
-pp(device_facts)
+print ">>>Load config change (merge) - no commit"
+device.load_merge_candidate(filename='nxos_merge.conf')
+print device.compare_config()
 print
 raw_input("Hit any key to continue: ")
 
 print
-print(">>>Test get lldp neighbors")
-device_int = device.get_lldp_neighbors_detail()
-pp(device_int)
+print ">>>Discard config change (merge)"
+device.discard_config()
+print device.compare_config()
 print
 raw_input("Hit any key to continue: ")
 
 print
-print ">>>Test get environment"
-try:
-    env = device.get_environment()
-    pp(env)
-except NotImplementedError:
-    print "Not implemented."
+print ">>>Load config change (merge) - commit"
+device.load_merge_candidate(filename='nxos_merge.conf')
+print device.compare_config()
+device.commit_config()
 print
 raw_input("Hit any key to continue: ")
-
-print
-print ">>>Test get interfaces"
-intf = device.get_interfaces()
-pp(intf)
-print
-raw_input("Hit any key to continue: ")
-
