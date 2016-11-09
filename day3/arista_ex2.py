@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 """
-Exercise 31
 Execute 'show interfaces' on the Arista switch using eapi.
-See if you can extract the interfaceCounters inOctets/outOctets for all the interfaces that have
-this information.
+
+Extract the interfaceCounters inOctets/outOctets for all the interfaces
+that have this information.
 """
 import pyeapi
 
 
 def main():
     """
-    Exercise 31
     Execute 'show interfaces' on the Arista switch using eapi.
-    See if you can extract the interfaceCounters inOctets/outOctets for all the interfaces that have
-    this information.
+
+    Extract the interfaceCounters inOctets/outOctets for all the interfaces
+    that have this information.
     """
-    pynet_sw = pyeapi.connect_to("pynet-sw1")
+    pynet_sw = pyeapi.connect_to("pynet-sw2")
     show_int = pynet_sw.enable("show interfaces")
     show_int = show_int[0]['result']['interfaces']
     print "\n{:>15} {:>15} {:>15}".format("Interface", "inOctets", "outOctets")
