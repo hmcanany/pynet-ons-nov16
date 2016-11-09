@@ -45,4 +45,4 @@ print device.compare_config()
 device.commit_config()
 print
 raw_input("Hit any key to continue: ")
-device.rollback()
+#device.rollback()
